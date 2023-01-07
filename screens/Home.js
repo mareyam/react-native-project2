@@ -11,25 +11,24 @@ const YELP_API_KEY =
 
 export default function Home({navigation}) {
 
-    const [restaurantData, setRestaurantData] = useState(localRestaurants);
+    const [restaurantData, setRestaurantData] = useState([]);
     const [activeTab, setActiveTab] = useState("Delivery");
-    const [city, setCity] = useState("");
+    const [city, setCity] = useState("newyork");
   
     const getRestaurantsFromYelp = async () => {
         const yelpUrl = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`;
         const apiOptions = {
           headers: {
-            Authorization: `Bearer ${YELP_API_KEY}`,
+            Authorization: `Bearer LK9nJotDn5vcO4wzZrldrSHoZZkiavgwHMrTT2IyFDu8MjFwTOYt7c6OrnobMymgCwtRfMkVRAdk6AFqeN0A_RktPP41Ok66An2Wklgss2J1tb__vYaJ1Tv27LmvY3Yx`,
           },
-        };
-        // .filter((business) =>
-        //     business.transactions.includes(activeTab.toLowerCase())
-    
+        };    
     return fetch(yelpUrl, apiOptions)
       .then((res) => res.json())
-      .then((json) =>
-        setRestaurantData(json.businesses));
-      };
+      .then((json) => {
+        console.log(json)
+        setRestaurantData(json.businesses)
+      });
+    };
       useEffect(() => {
         getRestaurantsFromYelp();
       }, [city,activeTab]);    

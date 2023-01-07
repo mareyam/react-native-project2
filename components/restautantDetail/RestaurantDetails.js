@@ -3,12 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import About from './About';
 import MenuItem from './MenuItem';
 
-export default function RestaurantDetails() {
+export default function RestaurantDetails({route}) {
   return (
     <View>
         <Text>helloooo</Text>
-          <About/>
-          <MenuItem/>
+          <About route={route}/>
+          <MenuItem />
     </View>
   );
 }

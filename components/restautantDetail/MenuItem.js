@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image,FlatList, ScrollView } from "react-native";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 const food = [
     {
       title: "Beachside Barrr",
@@ -72,6 +73,7 @@ export default function MenuItem() {
            {food.map((food, index) => ( 
              <View key={index}>
                <View style={styles.menuItemStyle}>
+                 <BouncyCheckbox/>
                  <FoodInfo food={food} />
                  <FoodImage food={food} />
              </View>
