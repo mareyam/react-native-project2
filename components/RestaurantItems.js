@@ -11,14 +11,14 @@ export default function RestaurantItems({ navigation, restaurantData }) {
         renderItem={({ item, index }) => {
           return (
           <TouchableOpacity key={index} activeOpacity={1} style={{marginBotton:30}} 
-            onPress={() => navigation.navigate("RestaurantDetail",
+            onPress={() => navigation.navigate("RestaurantDetails",
             {
-              name: restaurant.name,
-              image: restaurant.image_url,
-              price: restaurant.price,
-              reviews: restaurant.review_count,
-              rating: restaurant.rating,
-              categories: restaurant.categories,
+              name: restaurantData.name,
+              image: restaurantData.image_url,
+              price: restaurantData.price,
+              reviews: restaurantData.review_count,
+              rating: restaurantData.rating,
+              categories: restaurantData.categories,
             })}>
             <View style={{ marginTop: 10, padding: 15, backgroundColor: "white" }} >
               <Image style={{width: "100%",height: 100,}}source={{ uri: `${item.image_url}` }}/>

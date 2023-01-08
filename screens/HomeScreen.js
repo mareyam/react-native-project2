@@ -1,19 +1,19 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Button } from "react-native";
+// import {Provider as ReduxProvider} from "react-redux";
+import Provider from "react-redux";
+import configureStore from "../redux/store";
+const store = configureStore();
 
 export default function App({ navigation }) {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Button
-        title="HomeScreen"
-        onPress={() => navigation.navigate("HomeScreen")}
-      />
-      <Button
-        title="RestaurantDetails"
-        onPress={() => navigation.navigate("RestaurantDetails")}
-      />
-    </View>
+  <Provider store={store}>
+      <View style={styles.container}>
+          <StatusBar style="auto" />
+          <Button title="HomeScreen"  onPress={() => navigation.navigate("HomeScreen")}/>
+          <Button title="RestaurantDetails" onPress={() => navigation.navigate("RestaurantDetails")} />
+      </View>
+    </Provider>
   );
 }
 
